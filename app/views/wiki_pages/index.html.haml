@@ -1,0 +1,27 @@
+- @section = 'wikis'
+
+.yui-b
+  -if logged_in? && current_user.wikis.any?
+    -box do
+      %h3=:memberships.l
+      %ul
+        -current_user.wikis.each do |wiki|
+          %li=link_to wiki.name, wiki
+
+
+
+#yui-main
+  .yui-b
+    -box :class => "wiki_list" do
+      %h3
+        = link_to :new_wiki.l, new_wiki_path, :class => 'right' if logged_in?
+        =:site_wikis.l :site => AppConfig.community_name
+
+      .pagination= paginating_links @wikis, :params => params if @wikis.page_count > 1
+
+      %br.clear
+      - if @wikis.any?
+        %ul= render :partial => "wikis/wiki", :collection => @wikis
+      %br.clear
+
+      .pagination= paginating_links @wikis, :params => params if @wikis.page_count > 1

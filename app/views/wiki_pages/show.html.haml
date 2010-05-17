@@ -1,0 +1,31 @@
+
+.yui-b= render :partial => "wikis/sidebar"
+
+#yui-main
+  .yui-b
+  
+    -box do
+      %h3=@wiki.name
+
+      - if @wiki_page.nil?
+        %h2=params[:id]
+
+        = link_to :create_wiki_page.l, new_wiki_wiki_page_path(:name => params[:id])
+      - else
+        %h2=@wiki_page.name
+
+        - if not @wiki_page.user.nil?
+          .hentry{:id => "wiki_page_#{@wiki_page.id}"}
+            .vcard.author
+              %h5= link_to image_tag(@wiki_page.user.avatar_photo_url(:thumb), :height => '50', :width => '50', :alt => "#{@wiki_page.user.login}"), user_path(@wiki_page.user), :rel => 'bookmark', :class => 'photo', :title => :users_profile.l(:user => @wiki_page.user.login)
+              %ul
+                %li.fn
+                  = link_to @wiki_page.user.login, user_path(@wiki_page.user), :class => 'url'
+                %li.update
+                  %abbr.published{"title"=>"#{@wiki_page.created_at}"}
+                    = I18n.l(@wiki_page.created_at, :format => :short_literal_date)
+                -if ( @wiki_page.can_be_deleted_by(current_user) )
+                  %li.delete=link_to_remote(:delete.l, {:url => wiki_wiki_page_path(@wiki, @wiki_page), :method => :delete, 500 => 'alert(\'Sorry, there was a server error\'); return false',  :success => visual_effect(:fade, "wiki_page_#{@wiki_page.id}"), :confirm => :are_you_sure_you_want_to_permanently_delete_this_comment.l} )
+            .entry-content= format_wiki_page(@wiki, @wiki_page.content)
+
+          = link_to :edit_wiki_page.l, edit_wiki_wiki_page_path

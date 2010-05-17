@@ -1,0 +1,41 @@
+en:
+  #wiki
+  administer_wiki: Wikis verwalten
+  created_a_wiki: "hat einen Wiki erstellt:"
+  edit_wiki: Wiki bearbeiten
+  destroy_wiki_header: Wiki löschen?
+  destroy_wiki_button: Hier klicken um diesen Wiki endgültig zu löschen
+  destroy_wiki_confirmation: Bist du sicher das du diesen Wiki löschen möchtest? Es kann nicht Rückgängig gemacht werden.
+  wiki: Wiki
+  wikis: Wikis
+  wiki_details: Wikis Details
+  wiki_comments: Kommentare
+  wiki_public_or_private: Diese Gruppe ist {{privacy}}
+  owner: Eigentümer
+  new_wiki: Neue Gruppe
+  public: Öffentlich
+  private: Privat
+  site_wikis: "{{site}} Wikis"
+  new_wiki_page: "Neue Seite"
+  wiki_page: "Wiki Seite"
+
+  #wiki photos
+  wiki_photos: "{{name}}'s Photos"
+  new_wiki_photo: Neues Photo
+
+  #wiki members
+  deactivate: Deaktivieren
+  wiki_members: Wikis Mitglieder
+  invite_members: Mitglieder einladen
+  join_wiki: Gruppe beitreten
+  leave_wiki: Gruppe verlassen
+  memberships: Mitgliedschaft
+  user_was_removed_by_wiki_owner: Du hast den User aus der Gruppe entfernt.
+  user_left_wiki: Du hast diese Gruppe verlassen.
+  user_joined_wiki: Du bist dieser Gruppe beigetreten.
+
+  # wiki pages
+  edit_wiki_page: "Seite bearbeiten"
+  destroy_wiki_page_header: Wiki Seite löschen?
+  destroy_wiki_page_button: Hier klicken um diesen Wiki Seite endgültig zu löschen
+  destroy_wiki_page_confirmation: Bist du sicher das du diesen Wiki Seite löschen möchtest? Es kann nicht Rückgängig gemacht werden.

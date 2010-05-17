@@ -1,0 +1,4 @@
+- case activity.item_type 
+  - when 'Wiki'
+    =:created_a_wiki.l
+    = link_to activity.item.name, wikis_path(activity.item)

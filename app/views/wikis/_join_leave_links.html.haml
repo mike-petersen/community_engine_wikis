@@ -1,0 +1,6 @@
+-if user
+  -box :class => 'first_alt alt' do
+    -if user.can_request_wiki_membership?(@wiki)
+      =button_to :join_wiki.l, wiki_memberships_path(@wiki)
+    -elsif user.is_member_of?(@wiki)
+      =button_to :leave_wiki.l, wiki_membership_path(@wiki, @wiki.membership(user)), :method => :delete

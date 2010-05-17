@@ -1,0 +1,9 @@
+-box do
+  =error_messages_for :wiki
+  - semantic_form_for @wiki, :html => {:class => "MainForm", :multipart => true} do |form|
+
+    -form.inputs :name => :new_wiki.l do
+      =render :partial => 'wikis/form', :locals => {:form => form}
+
+    %p
+      = form.submit :create.l

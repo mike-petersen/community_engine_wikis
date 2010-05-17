@@ -1,0 +1,11 @@
+Hey <%= @wiki_membership.user.login %>!
+
+You have been invited to join the <%= @wiki_membership.wiki.name %> group!
+
+
+To activate your membership, visit this link:
+
+<%= @url %> 
+
+Thanks,
+The <%= AppConfig.community_name %> team

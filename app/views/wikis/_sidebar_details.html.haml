@@ -1,0 +1,22 @@
+-box do
+  %h3
+    = link_to wiki.name, wiki_path(wiki)
+  - if not @wiki_page.nil?
+    %h4
+      = :wiki_page.l
+      = link_to @wiki_page.name, wiki_wiki_page_path(wiki, @wiki_page)
+    %br
+
+  .centered
+
+    = image_tag( wiki.avatar_photo_url(:medium), :class => 'polaroid')
+
+    - if @is_wiki_owner
+      %br
+      =:no_profile_wikiphoto.l
+      = link_to :click_here_to_upload_one.l, edit_wiki_path(wiki)
+    
+  %br.clear
+  %h3=:wiki_details.l
+
+  =:wiki_public_or_private.l :privacy => wiki.public? ? :public.l : :private.l

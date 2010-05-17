@@ -1,0 +1,32 @@
+
+.yui-b= render :partial => "wikis/sidebar"
+
+#yui-main
+  .yui-b
+  
+    -box do
+      %h3=@wiki.name
+
+      - if @wiki.long_description
+        %p= @wiki.long_description
+  
+    -box do
+      %h3
+        = link_to :new_wiki_page.l, new_wiki_wiki_page_path(@wiki), :class => 'right' if logged_in?
+
+      - @wiki.wiki_pages.each do |page|
+        .hentry{:id => "wiki_page_#{page.id}"}
+          .vcard.author
+            %h5= link_to image_tag(page.user.avatar_photo_url(:thumb), :height => '50', :width => '50', :alt => "#{page.user.login}"), user_path(page.user), :rel => 'bookmark', :class => 'photo', :title => :users_profile.l(:user => page.user.login)
+            %ul
+              %li.fn
+                = link_to page.user.login, user_path(page.user), :class => 'url'
+              %li.update
+                %abbr.published{"title"=>"#{page.created_at}"}
+                  = I18n.l(page.created_at, :format => :short_literal_date)
+              -if ( page.can_be_deleted_by(current_user) )
+                %li.delete=link_to_remote(:delete.l, {:url => wiki_wiki_page_path(@wiki, page), :method => :delete, 500 => 'alert(\'Sorry, there was a server error\'); return false',  :success => visual_effect(:fade, "wiki_page_#{page.id}"), :confirm => :are_you_sure_you_want_to_permanently_delete_this_comment.l} )
+          .entry-content= link_to page.name, wiki_wiki_page_path(@wiki, page)
+
+
+          

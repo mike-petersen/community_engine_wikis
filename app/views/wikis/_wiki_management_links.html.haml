@@ -1,0 +1,13 @@
+-if logged_in?
+  -if @wiki.is_owned_by?(current_user)
+    -box :class => 'first_alt alt' do
+      %h3
+        =:administer_wiki.l
+      %p
+        = link_to :edit_wiki.l, edit_wiki_path(@wiki)
+      %p
+        = link_to :wiki_members.l, wiki_memberships_path(@wiki)
+      %p
+        = link_to :invite_members.l, invite_wiki_memberships_path(@wiki)
+
+= render :partial => "wikis/join_leave_links", :locals => {:user => current_user, :wiki => @wiki}

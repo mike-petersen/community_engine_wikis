@@ -1,0 +1,43 @@
+en:
+
+  #wiki
+  administer_wiki: Administer wiki
+  created_a_wiki: "created a wiki:"
+  edit_wiki: Edit wiki
+  destroy_wiki_header: Destroy wiki?
+  destroy_wiki_button: Click here to permanently destroy this wiki
+  destroy_wiki_confirmation: Are you sure you want to destroy this wiki? It can't be undone.
+  wiki: wiki
+  wikis: wikis
+  wiki_details: Wiki Details
+  wiki_comments: Comments
+  wiki_public_or_private: This wiki is {{privacy}}
+  owner: owner
+  new_wiki: New wiki
+  public: public
+  private: private
+  site_wikis: "{{site}} wikis"
+  new_wiki_page: "New page"
+  wiki_page: "Wiki page"
+
+  #wiki photos
+  wiki_photos: "{{name}}'s photos"
+  new_wiki_photo: New Photo
+  
+  #wiki members
+  deactivate: Deactivate
+  wiki_members: Wiki Members
+  invite_members: Invite Members  
+  join_wiki: Join wiki
+  leave_wiki: Leave wiki
+  memberships: Memberships
+  user_was_removed_by_wiki_owner: You have removed that user from the wiki.
+  user_left_wiki: You have left this wiki.
+  user_joined_wiki: You have joined this wiki.
+
+  # wiki pages
+  edit_wiki_page: "Edit page"
+  destroy_wiki_page_header: Destroy wiki page?
+  destroy_wiki_page_button: Click here to permanently destroy this wiki page
+  destroy_wiki_page_confirmation: Are you sure you want to destroy this wiki page? It can't be undone.
+  

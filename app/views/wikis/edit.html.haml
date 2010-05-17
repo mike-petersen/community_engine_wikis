@@ -1,0 +1,17 @@
+.yui-b= render :partial => "wikis/sidebar"
+
+#yui-main
+  .yui-b
+    -box do
+      - semantic_form_for @wiki, :html => {:class => "MainForm", :multipart => true} do |form|
+
+        -form.inputs :name => :edit_wiki.l do
+          =render :partial => 'wikis/form', :locals => {:form => form}
+
+        %p
+          = form.submit :update.l
+
+
+    -box do
+      %h3=:destroy_wiki_header.l
+      =button_to :destroy_wiki_button.l, wiki_path(@wiki), :confirm => :destroy_wiki_confirmation.l, :method => :delete

@@ -1,0 +1,39 @@
+CommunityEngineWikis
+====================
+
+NOTE: This plugin is in super-alpha-please-be-careful-with-me form.
+
+YOUR HELP IS NEEDED TO IMPROVE THIS PLUGIN! Please fork it, add tests, add documentation, add code, and send me pull requests. Thanks,
+OdaniaIT
+
+
+Installation
+------------
+
+1. Install the plugin into your vendor directory:
+
+        script/plugin install git://github.com/bborn/community_engine_groups.git
+
+2.  Run the install template:
+
+        rake rails:template LOCATION=vendor/plugins/community_engine_wikis/install_template.rb
+
+3. Run tests (more tests needed please!): `rake community_engine_wikis:test`
+
+4. Start your server.
+
+Go to `/wikis` to see what's available. Administrators can create new wikis.
+
+
+Requirements
+------------
+- formtastic gem [http://gemcutter.org/gems/formtastic](http://gemcutter.org/gems/formtastic)
+- resource_controller plugin [http://github.com/jamesgolick/resource_controller](http://github.com/jamesgolick/resource_controller)
+
+THANKS
+------
+
+Special thanks to Bruno Bornsztein. His plugin community_engine_groups contributed the bulk of this initial codebase.
+
+
+Copyright (c) 2010 Mike Petersen Odania IT, released under the MIT license

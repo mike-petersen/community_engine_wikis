@@ -1,0 +1,46 @@
+.yui-b= render :partial => "wikis/sidebar"
+
+
+#yui-main
+  .yui-b
+    -box do
+      
+      %h3= :wiki_members.l
+      
+      
+      -if @wiki_memberships.page_count > 1
+        .pagination= paginating_links @wiki_memberships, :link_to_current_page => true
+
+      %table{"cellspacing"=>"0", "border"=>"0", "cellpadding"=>"0", "width"=>"100%"}
+        %tr
+          %th=:login.l
+          -if @owner_or_admin
+            %th=:e_mail.l
+            %th=:status.l
+            %th=:actions.l
+
+        - @wiki_memberships.each do |wiki_membership|
+          - user = wiki_membership.user
+          %tr{:id => "wiki_membership_#{wiki_membership.id}"}
+            %td
+              = link_to h(user.login), user_path(user)
+              -if wiki_membership.owner?
+                ="(#{:owner.l})"
+            -if @owner_or_admin
+              %td= h user.email
+              %td
+                - if wiki_membership.active?
+                  =:active.l
+                  -if wiki_membership.can_be_removed_by?(current_user)
+                    ='('+ link_to(:deactivate.l, deactivate_wiki_membership_path(@wiki, wiki_membership), :method => :put) +')'
+                -else
+                  =:inactive.l
+                  -if wiki_membership.can_be_removed_by?(current_user)
+                    ='('+ link_to(:activate.l, activate_wiki_membership_path(@wiki, wiki_membership), :method => :put) +')'
+                  
+              %td
+                -if wiki_membership.can_be_removed_by?(current_user)
+                  = link_to_remote(image_tag('icons/delete.png', :plugin => 'community_engine'), {:url => wiki_membership_path(@wiki, wiki_membership), :method => :delete, :success => visual_effect(:fade, "wiki_membership_#{wiki_membership.id}")} )
+
+      -if @wiki_memberships.page_count > 1
+        .pagination= paginating_links @wiki_memberships, :link_to_current_page => true
